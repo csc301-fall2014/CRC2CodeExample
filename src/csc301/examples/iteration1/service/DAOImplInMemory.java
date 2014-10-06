@@ -2,12 +2,10 @@ package csc301.examples.iteration1.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-
 
 import csc301.examples.iteration1.model.Post;
 import csc301.examples.iteration1.model.User;
@@ -67,7 +65,9 @@ public class DAOImplInMemory implements DAO {
 		if(username2Posts.containsKey(username)){
 			return username2Posts.get(username).iterator();
 		} else {
-			return Collections.emptyIterator(); 
+			// This is nicer, but only works for Java7 and above.
+//			return Collections.emptyIterator();
+			return (new ArrayList<Post>()).iterator(); 
 		}
 	}
 
